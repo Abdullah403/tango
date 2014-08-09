@@ -1,0 +1,44 @@
+{% extends "rango/base.html" %}
+
+
+{% block title %}
+Rango is about  says hello to you!
+{% endblock %}
+  
+   
+        <p>Welcome ,{{ user.name }}</p>
+        <p>You recently visited here at {{ last_visit }}</p>
+        <p>You totally visited {{ count }} times.</p>
+  
+        <p>>this is the firs time you vist here .</p>
+
+
+
+
+{% block body_block %}
+{% if user.is_authenticated %}     
+    {% if last_visit %}
+   
+        <p>Welcome ,{{ user }}</p>
+
+        <p>You recently visited here at {{ last_visit }}</p>
+        <p>You totally visited {{ count }} times.</p>
+        {% for i in context %}
+            <p>{{ i }} in context
+             {% for p in i %}
+                {{ p }}
+            
+            
+         {% endfor %}
+         </p> 
+         {% endfor %}
+     {% else %}
+  
+        <p>>this is the firs time you vist here .</p>
+     {% endif %}
+     {% endif %}
+<p><a href='/rango/' >Rango</a></p>
+
+<p>You have waked for {{wake_time}}</p>
+
+{% endblock %}
